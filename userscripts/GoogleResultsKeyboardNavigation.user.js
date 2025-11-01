@@ -43,13 +43,8 @@
    * This filter is now stricter to exclude elements like "People also ask".
    */
   function getValidResults() {
-      return Array.from(document.querySelectorAll('div.MjjYud')).filter(el => {
-          // A valid result must be a container (MjjYud) and must contain the primary link/title structure.
-          // This structure is often represented by a link containing an H3 tag.
-          return el.querySelector('a > h3') !== null;
-      });
+      return Array.from(document.querySelectorAll('div.MjjYud:has(a > h3):not(:has(span[role=heading]))'));
   }
-
 
   /**
    * Updates the visual indicator (the blue triangle and outline) for the newly selected result.
