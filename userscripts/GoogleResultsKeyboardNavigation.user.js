@@ -2,7 +2,7 @@
 // @name         KeyNavGoogleResults
 // @license MIT
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.0
 // @description  Keyboard shortcuts for Google search: numbers (1-0) open results in background tabs (Shift for foreground tab, Alt for current tab), Arrow Up/Down to navigate results, Enter to open selected result, Left/Right arrows to navigate pages
 // @author       pietrodn
 // @match        https://www.google.com/search*
@@ -10,8 +10,8 @@
 // @grant        GM_openInTab
 // @grant        window.focus
 // @noframes
-// Forked from: https://greasyfork.org/en/scripts/524830-keynavgoogleresults (MIT license) from aceitw
 // ==/UserScript==
+// Forked from: https://greasyfork.org/en/scripts/524830-keynavgoogleresults (MIT license) from aceitw
 
 (function () {
   'use strict';
@@ -40,10 +40,10 @@
 
   /**
    * Helper function to get the array of valid search result elements.
-   * This filter is now stricter to exclude elements like "People also ask".
+   * This filter excludes elements like "People also ask".
    */
   function getValidResults() {
-      return Array.from(document.querySelectorAll('div.MjjYud:has(a > h3):not(:has(span[role=heading]))'));
+    return Array.from(document.querySelectorAll('div.MjjYud:has(a > h3):not(:has(span[role=heading]))'));
   }
 
   /**
@@ -84,8 +84,7 @@
         // Scroll the selected element into view, ensuring a smooth experience
         if (shouldScroll) {
             // Only scroll when explicitly told (i.e., when using arrow keys)
-            // Changed 'center' to 'nearest' to prevent excessive scrolling/snapping.
-            newResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            newResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       }
     }
@@ -111,7 +110,6 @@
     }
 
     lastResultCount = currentResultCount;
-
 
     results.forEach((result, index) => {
       // Limit to 10 results for number keys
