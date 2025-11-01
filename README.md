@@ -14,4 +14,4 @@ Inspired by the [KeyNavGoogleResults](https://greasyfork.org/en/scripts/524830-k
     - number keys (1-9) to open the corresponding result in a new tab
     - arrow left / right to switch between results pages
     
-![GoogleResultsKeyboardNavigation demo](./docs/GoogleResultsScreenshot.png)
+![GoogleResultsKeyboardNavigation demo](./docs/GoogleResultsAnimation.gif)
