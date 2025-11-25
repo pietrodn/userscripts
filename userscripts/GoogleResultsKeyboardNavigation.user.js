@@ -43,7 +43,7 @@
    * This filter excludes elements like "People also ask".
    */
   function getValidResults() {
-    return Array.from(document.querySelectorAll('div.MjjYud:has(a > h3):not(:has(span[role=heading]))'));
+    return Array.from(document.querySelectorAll('div.A6K0A:has(a > h3):not(:has(span[role=heading]))'));
   }
 
   /**
